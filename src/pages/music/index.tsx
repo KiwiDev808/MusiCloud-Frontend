@@ -1,8 +1,13 @@
+import Layout from '../../components/Layout'
+import MusicList from '../../components/MusicList'
+import useProtectedPage from '../../hooks/useProtectedPage'
+
 const Music = () => {
+  const token = useProtectedPage()
   return (
-    <div>
-      <h1>Musics</h1>
-    </div>
+    <Layout title="Home - MusiCloud">
+      {token && <MusicList token={token} />}
+    </Layout>
   )
 }
 

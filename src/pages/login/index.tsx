@@ -1,9 +1,14 @@
+import Layout from '../../components/Layout'
+import LoginPage from '../../components/Login'
+import useUnprotectedPage from '../../hooks/useUnprotecedPage'
 
 const Login = () => {
+  useUnprotectedPage()
+
   return (
-    <div>
-      <h1>Login</h1> 
-    </div>
+    <Layout title="Log In - MusiCloud">
+      <LoginPage />
+    </Layout>
   )
 }
 

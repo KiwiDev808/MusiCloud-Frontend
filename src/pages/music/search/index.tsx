@@ -1,14 +1,9 @@
 import CreateMusicPage from '../../../components/CreateMusic'
-import Layout from '../../../components/Layout'
 import useProtectedPage from '../../../hooks/useProtectedPage'
 
 const CreateMusic = () => {
   const token = useProtectedPage()
-  return (
-    <Layout title="Create Music - MusiCloud" section="Criar Música">
-      {token && <CreateMusicPage token={token} />}
-    </Layout>
-  )
+  return <div>{token && <CreateMusicPage token={token} />}</div>
 }
 
 export default CreateMusic

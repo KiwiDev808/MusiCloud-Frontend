@@ -14,6 +14,13 @@ interface signupInput {
   nickname: string
 }
 
+interface createMusicInput {
+  title: string
+  genresIds: string
+  albumId: string
+  file: string
+}
+
 export class API {
   static async signup(data: signupInput) {
     const request = axios.post('/user/signup', data)
@@ -27,6 +34,15 @@ export class API {
 
   static async getAllMusics(token: string) {
     const request = axios.get('/music/all', {
+      headers: {
+        Authorization: token,
+      },
+    })
+    return request.then((response) => response.data)
+  }
+
+  static async createMusic(data: createMusicInput, token: string) {
+    const request = axios.post('/music/createMusic', data, {
       headers: {
         Authorization: token,
       },

@@ -1,8 +1,14 @@
+import Layout from '../../components/Layout'
+import SignupPage from '../../components/Signup'
+import useUnprotectedPage from '../../hooks/useUnprotecedPage'
+
 const Signup = () => {
+  useUnprotectedPage()
+
   return (
-    <div>
-      <h1>Signup</h1>
-    </div>
+    <Layout title="Signup - MusiCloud">
+      <SignupPage />
+    </Layout>
   )
 }
 
