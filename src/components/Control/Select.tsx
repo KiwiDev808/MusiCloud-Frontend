@@ -1,31 +1,28 @@
-import {
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select as MuiSelect,
-} from '@material-ui/core'
+import { MenuItem, TextField } from '@material-ui/core'
 
 const Select = (props) => {
-  const { error, options, inputProps, label, ...rest } = props
+  const { error, options, inputProps, label, variant, ...rest } = props
   return (
-    <FormControl error={!!error} fullWidth>
-      <InputLabel htmlFor={inputProps.name}>{label}</InputLabel>
-
-      <MuiSelect inputProps={inputProps} {...rest}>
-        <MenuItem value="" disabled>
-          Select
-        </MenuItem>
-        {options.map((option) => {
-          return (
-            <MenuItem key={option.id} value={option.id}>
-              {option.name}
-            </MenuItem>
-          )
-        })}
-      </MuiSelect>
-      <FormHelperText>{error?.message}</FormHelperText>
-    </FormControl>
+    <TextField
+      select
+      label={label}
+      variant={variant || 'outlined'}
+      error={!!error}
+      helperText={error?.message}
+      inputProps={inputProps}
+      {...rest}
+    >
+      <MenuItem value="" disabled>
+        Select
+      </MenuItem>
+      {options.map((option) => {
+        return (
+          <MenuItem key={option.id} value={option.id}>
+            {option.name}
+          </MenuItem>
+        )
+      })}
+    </TextField>
   )
 }
 

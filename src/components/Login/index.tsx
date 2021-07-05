@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button } from '@material-ui/core'
 import { useRouter } from 'next/dist/client/router'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { object, string } from 'yup'
@@ -44,7 +43,7 @@ const LoginPage = () => {
           Voltar
         </Button>
       </Link>
-      <Image src={logoImage} alt="logo" />
+      <img src={logoImage.src} alt="logo" />
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input error={errors.email} label="Email" {...register('email')} />
