@@ -46,7 +46,7 @@ const SelectMultiple = (props: any) => {
                   <div className={classes.chips}>
                     {selecteds.map((selected) => {
                       const option = options.find(
-                        (option: string) => option.id === selected
+                        (option: any) => option.id === selected
                       )
                       return (
                         <Chip
