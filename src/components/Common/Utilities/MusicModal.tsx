@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 )
 
-const MusicModal = (props) => {
+const MusicModal = (props: any) => {
   const classes = useStyles()
   const { open, handleClose, music } = props
   const date = new Date(0)
