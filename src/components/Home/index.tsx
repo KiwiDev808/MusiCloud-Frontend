@@ -1,13 +1,13 @@
 import { Button, Typography } from '@material-ui/core'
 import Link from 'next/dist/client/link'
 import React from 'react'
+import Logo from '../Common/Logo'
 import styles from './styles.module.scss'
 
 const HomePage = () => {
   return (
     <div className={styles.homeContainer}>
-      <img src="images/logo.png" />
-
+      <Logo className={styles.logo} />
       <div>
         <Typography variant="h4" component="h4">
           We play the music.

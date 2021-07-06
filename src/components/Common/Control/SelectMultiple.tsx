@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const SelectMultiple = (props: any) => {
+export default function SelectMultiple(props: any) {
   const { name, control, options, label, variant, ...rest } = props
   const classes = useStyles()
   return (
@@ -40,8 +40,8 @@ const SelectMultiple = (props: any) => {
               onBlur,
               value,
               multiple: true,
-              ...rest,
-              renderValue: (selecteds: Array<string>) => {
+              // eslint-disable-next-line react/display-name
+              renderValue: (selecteds: Array<any>) => {
                 return (
                   <div className={classes.chips}>
                     {selecteds.map((selected) => {
@@ -59,6 +59,7 @@ const SelectMultiple = (props: any) => {
                   </div>
                 )
               },
+              ...rest,
             }}
           >
             {options.map((option: any) => (
@@ -82,5 +83,3 @@ const SelectMultiple = (props: any) => {
     />
   )
 }
-
-export default SelectMultiple

@@ -1,6 +1,6 @@
 import { TextField as MuiInput } from '@material-ui/core'
 
-const Input = (props: any) => {
+export default function Input(props: any) {
   const { variant, error, label, type, ...rest } = props
 
   return (
@@ -14,5 +14,3 @@ const Input = (props: any) => {
     />
   )
 }
-
-export default Input

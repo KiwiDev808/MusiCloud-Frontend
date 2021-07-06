@@ -1,9 +1,4 @@
-import {
-  IconButton,
-  makeStyles,
-  TextField,
-  Typography,
-} from '@material-ui/core'
+import { IconButton, TextField, Typography } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import Autocomplete from '@material-ui/lab/Autocomplete'
 import Link from 'next/link'
@@ -14,17 +9,7 @@ import AppBar from '../Common/AppBar'
 import MusicCard from '../Common/MusicCard'
 import styles from './styles.module.scss'
 
-const useStyles = makeStyles({
-  root: {
-    color: 'white',
-  },
-  tag: {
-    color: 'white',
-  },
-})
-
 const SearchMusic = ({ token }: any) => {
-  const classes = useStyles()
   const [musics, setMusics] = useState([])
   const [query, setQuery] = useState('')
   const handleQueryChange = (event: any, value: any) => {
@@ -81,7 +66,7 @@ const SearchMusic = ({ token }: any) => {
                 music.author.toLowerCase().includes(query)
             )
             .map((music: Music) => {
-              return <MusicCard music={music} />
+              return <MusicCard key={music.id} music={music} />
             })
         )}
       </div>

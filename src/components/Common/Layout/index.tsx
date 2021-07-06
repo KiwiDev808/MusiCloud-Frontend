@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 })
 
-function Layout({ children, title }: any) {
+export default function Layout({ children, title }: any) {
   const classes = useStyles()
   return (
     <>
@@ -23,5 +23,3 @@ function Layout({ children, title }: any) {
     </>
   )
 }
-
-export default Layout

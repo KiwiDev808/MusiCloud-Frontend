@@ -1,6 +1,6 @@
 import { MenuItem, TextField } from '@material-ui/core'
 
-const Select = (props: any) => {
+export default function Select(props: any) {
   const { error, options, inputProps, label, variant, ...rest } = props
   return (
     <TextField
@@ -25,5 +25,3 @@ const Select = (props: any) => {
     </TextField>
   )
 }
-
-export default Select

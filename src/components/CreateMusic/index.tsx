@@ -6,13 +6,13 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { array, object, string } from 'yup'
-import logoImage from '../../../public/images/logo.png'
 import { API } from '../../services/api'
 import { Genre } from '../../types/Genre'
 import AppBar from '../Common/AppBar'
 import Input from '../Common/Control/Input'
 import Select from '../Common/Control/Select'
 import SelectMultiple from '../Common/Control/SelectMultiple'
+import Logo from '../Common/Logo'
 import styles from './styles.module.scss'
 
 const CreateMusic = ({ token }: any) => {
@@ -53,7 +53,7 @@ const CreateMusic = ({ token }: any) => {
     } finally {
       setLoading(false)
     }
-  }, [])
+  }, [token])
 
   const onSubmit = async (data: any) => {
     try {
@@ -83,7 +83,7 @@ const CreateMusic = ({ token }: any) => {
         </Link>
       </AppBar>
 
-      <img src={logoImage.src} alt="logo" />
+      <Logo className={styles.logo} />
 
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
         <Input error={errors.title} label="Title" {...register('title')} />

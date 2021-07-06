@@ -94,7 +94,11 @@ const MusicList = ({ token }: any) => {
           })
           .map((music: Music) => {
             return (
-              <MusicCard music={music} onClick={() => handleModalOpen(music)} />
+              <MusicCard
+                key={music.id}
+                music={music}
+                onClick={() => handleModalOpen(music)}
+              />
             )
           })}
       </div>
