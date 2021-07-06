@@ -5,13 +5,13 @@ import React from 'react'
 import '../styles/global.css'
 import theme from '../styles/themes'
 
-export default function MyApp(props) {
+export default function MyApp(props: any) {
   const { Component, pageProps } = props
 
   React.useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side')
     if (jssStyles) {
-      jssStyles.parentElement.removeChild(jssStyles)
+      jssStyles.parentElement?.removeChild(jssStyles)
     }
   }, [])
 

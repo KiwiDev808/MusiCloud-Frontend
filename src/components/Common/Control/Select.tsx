@@ -1,6 +1,6 @@
 import { MenuItem, TextField } from '@material-ui/core'
 
-const Select = (props) => {
+const Select = (props: any) => {
   const { error, options, inputProps, label, variant, ...rest } = props
   return (
     <TextField
@@ -15,7 +15,7 @@ const Select = (props) => {
       <MenuItem value="" disabled>
         Select
       </MenuItem>
-      {options.map((option) => {
+      {options.map((option: any) => {
         return (
           <MenuItem key={option.id} value={option.id}>
             {option.name}

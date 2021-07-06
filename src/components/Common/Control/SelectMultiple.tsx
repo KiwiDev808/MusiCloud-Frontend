@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const SelectMultiple = (props) => {
+const SelectMultiple = (props: any) => {
   const { name, control, options, label, variant, ...rest } = props
   const classes = useStyles()
   return (
@@ -61,10 +61,12 @@ const SelectMultiple = (props) => {
               },
             }}
           >
-            {options.map((option) => (
+            {options.map((option: any) => (
               <MenuItem key={option.id} value={option.id}>
                 <Checkbox
-                  checked={value.some((selected) => selected === option.id)}
+                  checked={value.some(
+                    (selected: any) => selected === option.id
+                  )}
                 />
                 <ListItemText primary={option.name} />
               </MenuItem>

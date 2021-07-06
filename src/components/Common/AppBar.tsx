@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 })
 
-const AppBar = (props) => {
+const AppBar = (props: any) => {
   const classes = useStyles()
   const { section, children, rest } = props
   return (

@@ -1,6 +1,6 @@
 import { TextField as MuiInput } from '@material-ui/core'
 
-const Input = (props) => {
+const Input = (props: any) => {
   const { variant, error, label, type, ...rest } = props
 
   return (

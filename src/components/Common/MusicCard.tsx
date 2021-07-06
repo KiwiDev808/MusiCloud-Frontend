@@ -1,6 +1,6 @@
 import { Card, CardContent, Typography } from '@material-ui/core'
 
-const MusicCard = (props) => {
+const MusicCard = (props: any) => {
   const { music, onClick } = props
 
   const date = new Date(0)
