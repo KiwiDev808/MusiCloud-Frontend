@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Common/Layout'
 import LoginPage from '../../components/Login'
 import useUnprotectedPage from '../../hooks/useUnprotecedPage'
 

@@ -1,5 +1,5 @@
+import Layout from '../components/Common/Layout'
 import HomePage from '../components/Home'
-import Layout from '../components/Layout'
 import useUnprotectedPage from '../hooks/useUnprotecedPage'
 
 export default function Home() {

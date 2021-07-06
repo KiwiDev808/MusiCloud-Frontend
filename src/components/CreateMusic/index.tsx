@@ -1,11 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup'
-import {
-  AppBar,
-  Button,
-  IconButton,
-  Toolbar,
-  Typography,
-} from '@material-ui/core'
+import { Button, IconButton, Typography } from '@material-ui/core'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
@@ -15,9 +9,10 @@ import { array, object, string } from 'yup'
 import logoImage from '../../../public/images/logo.png'
 import { API } from '../../services/api'
 import { Genre } from '../../types/Genre'
-import Input from '../Control/Input'
-import Select from '../Control/Select'
-import SelectMultiple from '../Control/SelectMultiple'
+import AppBar from '../Common/AppBar'
+import Input from '../Common/Control/Input'
+import Select from '../Common/Control/Select'
+import SelectMultiple from '../Common/Control/SelectMultiple'
 import styles from './styles.module.scss'
 
 const CreateMusic = ({ token }: any) => {
@@ -79,18 +74,13 @@ const CreateMusic = ({ token }: any) => {
 
   return (
     <div className={styles.createMusicContainer}>
-      <AppBar className={styles.appbar} position="static">
-        <Toolbar>
-          <Typography variant="h5" noWrap>
-            Criar Musica
-          </Typography>
-          <Link href="/music" passHref>
-            <IconButton aria-label="go back" color="inherit">
-              <ArrowBackIcon />
-              <Typography noWrap>Voltar</Typography>
-            </IconButton>
-          </Link>
-        </Toolbar>
+      <AppBar section="Criar musica">
+        <Link href="/music" passHref>
+          <IconButton aria-label="go back" color="inherit">
+            <ArrowBackIcon />
+            <Typography noWrap>Voltar</Typography>
+          </IconButton>
+        </Link>
       </AppBar>
 
       <img src={logoImage.src} alt="logo" />

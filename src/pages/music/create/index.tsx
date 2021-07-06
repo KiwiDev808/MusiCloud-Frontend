@@ -1,5 +1,5 @@
 import CreateMusicPage from '../../../components/CreateMusic'
-import Layout from '../../../components/Layout'
+import Layout from '../../../components/Common/Layout'
 import useProtectedPage from '../../../hooks/useProtectedPage'
 
 const CreateMusic = () => {

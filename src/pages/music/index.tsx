@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Common/Layout'
 import MusicList from '../../components/MusicList'
 import useProtectedPage from '../../hooks/useProtectedPage'
 

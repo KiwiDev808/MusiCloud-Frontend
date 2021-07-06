@@ -1,14 +1,4 @@
-import {
-  AppBar,
-  Card,
-  CardContent,
-  Fab,
-  IconButton,
-  Tab,
-  Tabs,
-  Toolbar,
-  Typography,
-} from '@material-ui/core'
+import { Fab, IconButton, Tab, Tabs, Typography } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import SearchIcon from '@material-ui/icons/Search'
@@ -17,7 +7,9 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { API } from '../../services/api'
 import { Music } from '../../types/Music'
-import MusicModal from '../Utilities/MusicModal'
+import AppBar from '../Common/AppBar'
+import MusicCard from '../Common/MusicCard'
+import MusicModal from '../Common/Utilities/MusicModal'
 import styles from './styles.module.scss'
 
 const MusicList = ({ token }: any) => {
@@ -28,7 +20,7 @@ const MusicList = ({ token }: any) => {
   const [selectedMusic, setSelectedMusic] = useState({})
   const [loading, setLoading] = useState(false)
 
-  const handleChangeTab = (event, tabNumber) => {
+  const handleChangeTab = (event, tabNumber: number) => {
     setSelectedTab(tabNumber)
   }
 
@@ -68,19 +60,18 @@ const MusicList = ({ token }: any) => {
 
   return (
     <div className={styles.homeContainer}>
-      <AppBar className={styles.appbar} position="static">
-        <Toolbar>
-          <Typography variant="h5" noWrap>
-            Inicio
-          </Typography>
-          <IconButton aria-label="search" color="inherit">
-            <SearchIcon />
-          </IconButton>
+      <AppBar section="Inicio">
+        <div>
+          <Link href="/music/search" passHref>
+            <IconButton aria-label="search" color="inherit">
+              <SearchIcon />
+            </IconButton>
+          </Link>
           <IconButton aria-label="log out" color="inherit" onClick={logout}>
             <ExitToAppIcon />
             <Typography> Logout</Typography>
           </IconButton>
-        </Toolbar>
+        </div>
       </AppBar>
 
       <Tabs
@@ -102,23 +93,8 @@ const MusicList = ({ token }: any) => {
             return Number(b.date) - Number(a.date)
           })
           .map((music: Music) => {
-            const date = new Date(0)
-            date.setUTCMilliseconds(Number(music.date))
-
             return (
-              <Card onClick={() => handleModalOpen(music)}>
-                <CardContent>
-                  <Typography color="textSecondary" gutterBottom>
-                    {music.author}
-                  </Typography>
-                  <Typography variant="h5" component="h2">
-                    {music.title}
-                  </Typography>
-                  <Typography color="textSecondary">
-                    {date.toLocaleString()}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <MusicCard music={music} onClick={() => handleModalOpen(music)} />
             )
           })}
       </div>

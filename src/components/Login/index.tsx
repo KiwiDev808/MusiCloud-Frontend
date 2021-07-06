@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form'
 import { object, string } from 'yup'
 import logoImage from '../../../public/images/logo.png'
 import { API } from '../../services/api'
-import Input from '../Control/Input'
+import Input from '../Common/Control/Input'
 import styles from './styles.module.scss'
 
 const LoginPage = () => {
