@@ -20,7 +20,7 @@ const MusicList = ({ token }: any) => {
   const [selectedMusic, setSelectedMusic] = useState({})
   const [loading, setLoading] = useState(false)
 
-  const handleChangeTab = (event, tabNumber: number) => {
+  const handleChangeTab = (event: any, tabNumber: number) => {
     setSelectedTab(tabNumber)
   }
 
