@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { object, string } from 'yup'
 import { API } from '../../services/api'
 import Input from '../Common/Control/Input'
+import PasswordInput from '../Common/Control/PasswordInput'
 import Logo from '../Common/Logo'
 import styles from './styles.module.scss'
 
@@ -47,7 +48,7 @@ const LoginPage = () => {
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input error={errors.email} label="Email" {...register('email')} />
-        <Input
+        <PasswordInput
           error={errors.password}
           label="Password"
           {...register('password')}

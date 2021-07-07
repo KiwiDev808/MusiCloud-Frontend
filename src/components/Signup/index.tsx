@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { object, string } from 'yup'
 import { API } from '../../services/api'
 import Input from '../Common/Control/Input'
+import PasswordInput from '../Common/Control/PasswordInput'
 import Logo from '../Common/Logo'
 import styles from './styles.module.scss'
 
@@ -58,7 +59,7 @@ const SignupPage = () => {
           {...register('nickname')}
         />
 
-        <Input
+        <PasswordInput
           error={errors.password}
           label="Password"
           {...register('password')}
