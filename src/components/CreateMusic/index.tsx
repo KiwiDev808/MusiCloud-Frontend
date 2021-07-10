@@ -42,11 +42,11 @@ const CreateMusic = ({ token }: any) => {
   useEffect(() => {
     try {
       setLoading(true)
-      API.getAllGenres(token).then((result: Array<Genre>) => {
-        setDbGenres(result)
+      API.getAllGenres(token).then((result) => {
+        setDbGenres(result.genres)
       })
       API.getUserAlbum(token).then((result) => {
-        setDbAlbuns(result)
+        setDbAlbuns(result.albums)
       })
     } catch (error) {
       alert(error.response.data.message)

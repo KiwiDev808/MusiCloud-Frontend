@@ -17,8 +17,8 @@ const SearchMusic = ({ token }: any) => {
   }
   useEffect(() => {
     try {
-      API.getAllMusics(token).then((result) => {
-        setMusics(result)
+      API.getUserMusics(token).then((result) => {
+        setMusics(result.musics)
       })
     } catch (error) {
       alert(error.response.data.error)
@@ -60,11 +60,7 @@ const SearchMusic = ({ token }: any) => {
           <Typography noWrap>Digite alguma coisa....</Typography>
         ) : (
           musics
-            .filter(
-              (music: Music) =>
-                music.title.toLowerCase().includes(query) ||
-                music.author.toLowerCase().includes(query)
-            )
+            .filter((music: Music) => music.title.toLowerCase().includes(query))
             .map((music: Music) => {
               return <MusicCard key={music.id} music={music} />
             })

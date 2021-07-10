@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'https://backend-fullstack-labenu.herokuapp.com'
+axios.defaults.baseURL = 'https://musicloud-backend.herokuapp.com'
 
 interface loginInput {
   email: string
@@ -32,8 +32,8 @@ export class API {
     return request.then((response) => response.data)
   }
 
-  static async getAllMusics(token: string) {
-    const request = axios.get('/music/all', {
+  static async getUserMusics(token: string) {
+    const request = axios.get('/music', {
       headers: {
         Authorization: token,
       },
@@ -42,7 +42,7 @@ export class API {
   }
 
   static async createMusic(data: createMusicInput, token: string) {
-    const request = axios.post('/music/createMusic', data, {
+    const request = axios.post('/music', data, {
       headers: {
         Authorization: token,
       },
@@ -51,7 +51,7 @@ export class API {
   }
 
   static async getAllGenres(token: string) {
-    const request = axios.get('/music/genres', {
+    const request = axios.get('/genre', {
       headers: {
         Authorization: token,
       },
@@ -60,7 +60,7 @@ export class API {
   }
 
   static async getUserAlbum(token: string) {
-    const request = axios.get('/music/albums', {
+    const request = axios.get('/album', {
       headers: {
         Authorization: token,
       },
