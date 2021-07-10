@@ -24,8 +24,8 @@ const CreateMusic = ({ token }: any) => {
   const schema = object().shape({
     title: string().required('Title is required'),
     file: string().required('file is required'),
-    albumId: string().required('Album required'),
-    genresIds: array()
+    album_id: string().required('Album required'),
+    genres: array()
       .min(1, 'Select at least one genre')
       .required('Genre required'),
   })
@@ -91,15 +91,15 @@ const CreateMusic = ({ token }: any) => {
         <Input error={errors.file} label="File" {...register('file')} />
 
         <SelectMultiple
-          name="genresIds"
+          name="genres"
           control={control}
           options={dbGenres}
           label="Genre"
         />
 
         <Select
-          error={errors.albumId}
-          inputProps={{ ...register('albumId') }}
+          error={errors.album_id}
+          inputProps={{ ...register('album_id') }}
           options={dbAlbuns}
           label="Album"
         />

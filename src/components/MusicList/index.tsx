@@ -44,7 +44,7 @@ const MusicList = ({ token }: any) => {
   useEffect(() => {
     try {
       setLoading(true)
-      API.getUserMusics(token).then((result) => {
+      API.getAllMusics(token).then((result) => {
         setMusics(result.musics)
       })
     } catch (error) {

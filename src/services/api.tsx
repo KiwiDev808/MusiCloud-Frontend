@@ -32,8 +32,26 @@ export class API {
     return request.then((response) => response.data)
   }
 
-  static async getUserMusics(token: string) {
+  static async getAllMusics(token: string) {
     const request = axios.get('/music', {
+      headers: {
+        Authorization: token,
+      },
+    })
+    return request.then((response) => response.data)
+  }
+
+  static async getProfile(token: string) {
+    const request = axios.get('/profile', {
+      headers: {
+        Authorization: token,
+      },
+    })
+    return request.then((response) => response.data)
+  }
+
+  static async findProfile(token: string, id: string) {
+    const request = axios.get(`/profile/${id}`, {
       headers: {
         Authorization: token,
       },

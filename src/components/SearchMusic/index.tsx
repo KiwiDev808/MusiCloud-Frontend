@@ -7,17 +7,30 @@ import { API } from '../../services/api'
 import { Music } from '../../types/Music'
 import AppBar from '../Common/AppBar'
 import MusicCard from '../Common/MusicCard'
+import MusicModal from '../Common/Utilities/MusicModal'
 import styles from './styles.module.scss'
 
 const SearchMusic = ({ token }: any) => {
   const [musics, setMusics] = useState([])
+  const [modal, setModal] = useState(false)
+  const [selectedMusic, setSelectedMusic] = useState({})
   const [query, setQuery] = useState('')
   const handleQueryChange = (event: any, value: any) => {
     setQuery(String(value).toLowerCase())
   }
+
+  const handleModalOpen = (music: Music) => {
+    setSelectedMusic(music)
+    setModal(true)
+  }
+
+  const handleModalClose = () => {
+    setModal(false)
+  }
+
   useEffect(() => {
     try {
-      API.getUserMusics(token).then((result) => {
+      API.getAllMusics(token).then((result) => {
         setMusics(result.musics)
       })
     } catch (error) {
@@ -60,12 +73,27 @@ const SearchMusic = ({ token }: any) => {
           <Typography noWrap>Digite alguma coisa....</Typography>
         ) : (
           musics
-            .filter((music: Music) => music.title.toLowerCase().includes(query))
+            .filter(
+              (music: Music) =>
+                music.title.toLowerCase().includes(query) ||
+                music.author.toLowerCase().includes(query)
+            )
             .map((music: Music) => {
-              return <MusicCard key={music.id} music={music} />
+              return (
+                <MusicCard
+                  key={music.id}
+                  music={music}
+                  onClick={() => handleModalOpen(music)}
+                />
+              )
             })
         )}
       </div>
+      <MusicModal
+        open={modal}
+        handleClose={handleModalClose}
+        music={selectedMusic}
+      />
     </div>
   )
 }

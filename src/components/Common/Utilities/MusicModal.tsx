@@ -29,16 +29,18 @@ const MusicModal = (props: any) => {
   const { open, handleClose, music } = props
   const date = new Date(0)
   date.setUTCMilliseconds(Number(music.date ? music.date : 0))
-  const body = music.author ? (
+  const body = music.title ? (
     <Card className={classes.paper}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
-          {music.author}
+          {music?.author}
         </Typography>
         <Typography variant="h5" component="h2">
           {music.title}
         </Typography>
-        <Typography color="textSecondary">{date.toLocaleString()}</Typography>
+        <Typography color="textSecondary">
+          {date.toLocaleDateString()}
+        </Typography>
       </CardContent>
     </Card>
   ) : (

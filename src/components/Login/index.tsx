@@ -33,7 +33,7 @@ const LoginPage = () => {
       localStorage.setItem('token', result.token)
       router.push('/music')
     } catch (error) {
-      alert(error.response.data.error)
+      alert(error.response.data.message)
     }
   }
 

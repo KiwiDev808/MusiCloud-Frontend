@@ -6,7 +6,7 @@ const MusicCard = (props: any) => {
   const date = new Date(0)
   date.setUTCMilliseconds(Number(music.date))
   return (
-    <Card onClick={onClick}>
+    <Card onClick={onClick} style={{ cursor: 'pointer' }}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
           {music.author}
@@ -14,7 +14,6 @@ const MusicCard = (props: any) => {
         <Typography variant="h5" component="h2">
           {music.title}
         </Typography>
-        <Typography color="textSecondary">{date.toLocaleString()}</Typography>
       </CardContent>
     </Card>
   )
