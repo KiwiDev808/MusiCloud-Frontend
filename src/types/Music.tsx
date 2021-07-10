@@ -4,4 +4,6 @@ export type Music = {
   author: string
   date: string
   file: string
+  album_id: string
+  user_id: string
 }

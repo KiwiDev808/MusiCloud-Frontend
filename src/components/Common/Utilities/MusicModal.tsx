@@ -7,6 +7,9 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core'
+import { useEffect, useState } from 'react'
+import { API } from '../../../services/api'
+import { MusicDetails } from '../../../types/MusicDetails'
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -26,14 +29,30 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MusicModal = (props: any) => {
   const classes = useStyles()
-  const { open, handleClose, music } = props
+  const [music, setMusic] = useState<MusicDetails>({})
+  const { open, handleClose, id, token } = props
+
+  useEffect(() => {
+    if (open) {
+      API.getMusicById(token, id).then((result) => {
+        console.log(result.musicDetails)
+        setMusic(result.musicDetails)
+      })
+    }
+  }, [open, id, token])
+
   const date = new Date(0)
-  date.setUTCMilliseconds(Number(music.date ? music.date : 0))
+  if (music?.date) {
+    date.setUTCMilliseconds(Number(music?.date ? music?.date : 0))
+  }
   const body = music.title ? (
     <Card className={classes.paper}>
       <CardContent>
         <Typography color="textSecondary" gutterBottom>
           {music?.author}
+        </Typography>
+        <Typography color="textSecondary" gutterBottom>
+          {music?.album}
         </Typography>
         <Typography variant="h5" component="h2">
           {music.title}
@@ -41,6 +60,7 @@ const MusicModal = (props: any) => {
         <Typography color="textSecondary">
           {date.toLocaleDateString()}
         </Typography>
+        <Typography color="textSecondary">{music.genres.join(' ')}</Typography>
       </CardContent>
     </Card>
   ) : (

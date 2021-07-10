@@ -82,6 +82,7 @@ const SearchMusic = ({ token }: any) => {
               return (
                 <MusicCard
                   key={music.id}
+                  token={token}
                   music={music}
                   onClick={() => handleModalOpen(music)}
                 />
@@ -92,7 +93,7 @@ const SearchMusic = ({ token }: any) => {
       <MusicModal
         open={modal}
         handleClose={handleModalClose}
-        music={selectedMusic}
+        id={selectedMusic.id}
       />
     </div>
   )

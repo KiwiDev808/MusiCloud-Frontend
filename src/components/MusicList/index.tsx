@@ -45,6 +45,7 @@ const MusicList = ({ token }: any) => {
     try {
       setLoading(true)
       API.getAllMusics(token).then((result) => {
+        console.log(result)
         setMusics(result.musics)
       })
     } catch (error) {
@@ -97,6 +98,7 @@ const MusicList = ({ token }: any) => {
               <MusicCard
                 key={music.id}
                 music={music}
+                token={token}
                 onClick={() => handleModalOpen(music)}
               />
             )
@@ -105,8 +107,9 @@ const MusicList = ({ token }: any) => {
 
       <MusicModal
         open={modal}
+        token={token}
         handleClose={handleModalClose}
-        music={selectedMusic}
+        id={selectedMusic.id}
       />
 
       <Link href="/music/create" passHref>
